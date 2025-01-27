@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ job.title }}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>{{ job.title }}</h1>
+    <p><strong>Company:</strong> {{ job.company }}</p>
+    <p><strong>Location:</strong> {{ job.location }}</p>
+    <p><strong>Description:</strong> {{ job.description }}</p>
+    <form action="/apply/{{ job.id }}" method="POST">
+        <label for="user_id">Your User ID:</label>
+        <input type="text" id="user_id" name="user_id" required>
+        <button type="submit">Apply</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</html>

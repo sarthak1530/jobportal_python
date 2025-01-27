@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Applications</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <h1>Your Applications</h1>
+    {% if applications %}
+        <ul>
+            {% for application in applications %}
+            <li>
+                <p>Job ID: {{ application.job_id }}</p>
+                <form action="/delete_application/{{ application.id }}" method="POST">
+                    <button type="submit">Delete Application</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not applied for any jobs yet.</p>
+    {% endif %}
+    <a href="/">Back to Home</a>
+</body>
+</html>
